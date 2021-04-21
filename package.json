@@ -67,7 +67,7 @@
       "node"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/(build|docs|template|node_modules)/"
+      "<rootDir>/(build|docs|node_modules)/"
     ],
     "testRegex": [".test.ts$", ".test.tsx$"]
   },

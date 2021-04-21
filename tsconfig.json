@@ -26,7 +26,6 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "node_modules",
-    "template"
+    "node_modules"
   ]
 }
