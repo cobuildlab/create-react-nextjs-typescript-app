@@ -44,7 +44,7 @@
       "radix": "off",
       "arrow-parens": "error",
       "no-prototype-builtins": "off",
-      "import/no-default-export": "error",
+      "import/no-default-export": "off",
       "import/prefer-default-export": "off",
       "no-use-before-define": "off",
       "no-restricted-imports": [
