@@ -30,7 +30,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "eslintConfig": {
     "extends": [
