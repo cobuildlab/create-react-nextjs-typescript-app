@@ -13,5 +13,3 @@ export const AUTH_CLIENT_REDIRECT_URI = '';
 export const AUTH_CLIENT_REDIRECT_LOGOUT = '';
 // export const AUTH_CLIENT_REDIRECT_URI = (typeof window.location.origin != 'undefined')?`${window.location.origin}/auth/callback`:'';
 // export const AUTH_CLIENT_REDIRECT_LOGOUT = (typeof window.location.origin != 'undefined')?`${window.location.origin}/logout`:'';
-
-
