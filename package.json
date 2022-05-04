@@ -15,7 +15,7 @@
     "eslint-config-airbnb-typescript": "^16.2.0",
     "eslint-config-airbnb-typescript-prettier": "^5.0.0",
     "graphql": "^16.4.0",
-    "jest": "^27.5.1",
+    "jest": "^28.0.3",
     "next": "^12.0.10",
     "prettier": "^2.6.2",
     "react": "^17.0.2",
