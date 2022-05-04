@@ -8,7 +8,7 @@
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-      "project": "./route-app/create-react-nextjs-typescript-app/tsconfig.json"
+      "project": "./tsconfig.json"
     },
     "extends": [
       "airbnb/hooks",
