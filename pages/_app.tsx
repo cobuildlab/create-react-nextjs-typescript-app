@@ -1,8 +1,10 @@
 import { AppProps } from 'next/app';
 import { UserProvider } from '@auth0/nextjs-auth0';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
 
 import { ApolloProvider } from '../src/shared/apollo/ApolloProvider';
-import '../styles/globals.css';
+import { theme } from '../src/shared/css/theme';
 
 /**
  * 
@@ -13,11 +15,16 @@ import '../styles/globals.css';
  */
 function App({ Component, pageProps }: AppProps):JSX.Element {
   return (
-    <UserProvider>
-      <ApolloProvider>
-        <Component {...pageProps} />
-      </ApolloProvider>
-    </UserProvider>
+    <>
+      <CssBaseline />
+      <UserProvider>
+        <ApolloProvider>
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </ApolloProvider>
+      </UserProvider>
+    </>
   );
 }
 
