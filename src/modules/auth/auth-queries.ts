@@ -17,3 +17,15 @@ export const USER_SIGN_UP_MUTATION = gql`
     }
   }
 `;
+
+export const FETCH_SESSION_QUERY = gql`
+  query FetchSessionQuery {
+    user {
+      id
+      email
+      avatar {
+        shareUrl
+      }
+    }
+  }
+`;
