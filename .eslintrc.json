@@ -11,26 +11,27 @@
       "project": "./tsconfig.json"
     },
     "extends": [
+      "airbnb",
       "airbnb/hooks",
       "airbnb-typescript",
       "eslint:recommended",
-      "prettier",
-      "prettier/react",
-      "prettier/@typescript-eslint",
+      // "plugin:react/recommended",
+      "plugin:react/jsx-runtime",
+      // "plugin:react-hooks/recommended",
+      // "plugin:jsx-a11y/recommended",
+      // "plugin:import/recommended",
       "plugin:jest/recommended",
-      "plugin:cypress/recommended",
-      "plugin:jsx-a11y/recommended",
-      "plugin:@typescript-eslint/recommended"
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
     ],
     "plugins": [
       "@typescript-eslint",
       "react",
-      "jsx-a11y",
-      "react-hooks",
-      "import",
+      // "react-hooks",
+      // "jsx-a11y",
+      // "import",
       "jsdoc",
-      "jest",
-      "cypress"
+      "jest"
     ],
     "globals": {
       "JSX": true

@@ -8,30 +8,34 @@ import {
 import { getMainDefinition } from '@apollo/client/utilities';
 import { setContext } from '@apollo/client/link/context';
 import {
-  WORKSPACE_ENDPOINT
+  WORKSPACE_ENDPOINT,
+  PROJECT_ID
 } from '../constants';
-import { OnTokenEvent } from '../events/token-event';
 
 /**
- * @param {Function} getToken - Function to get the token.
  * @param {object} headers - Extra header to the client.
  * @returns {object} Apollo client.
  */
 export function createApolloClient(
-  getToken: () => string,
   headers = {},
 ): ApolloClient<NormalizedCacheObject> {
   const httpLink = new HttpLink({
     uri: WORKSPACE_ENDPOINT,
   });
+  const prefix = PROJECT_ID;
 
-  const authLink = setContext((_, { headers: _headers }) => ({
-    headers: {
-      ...headers,
-      ..._headers,
-      authorization: `Bearer ${getToken()}`,
-    },
-  }));
+  const authLink = setContext((_, { headers: _headers }) => {
+    const token = localStorage.getItem(`${prefix}-token`);
+    
+    return {
+      headers: {
+        ...headers,
+        ..._headers,
+        authorization: token ? `Bearer ${token}` : '',
+      },
+    }
+  });
+
   const splitLink = split(
     ({ query }) => {
       const definition = getMainDefinition(query);
@@ -51,6 +55,4 @@ export function createApolloClient(
   return client;
 }
 
-export const client = createApolloClient(
-  () => OnTokenEvent.get()?.token as string,
-);
+export const client = createApolloClient();

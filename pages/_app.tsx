@@ -1,8 +1,8 @@
-import React from 'react';
 import { AppProps } from 'next/app';
 import { UserProvider } from '@auth0/nextjs-auth0';
+
+import { ApolloProvider } from '../src/shared/apollo/ApolloProvider';
 import '../styles/globals.css';
-import { ApolloProvider } from '../src/apollo/ApolloProvider';
 
 /**
  * 

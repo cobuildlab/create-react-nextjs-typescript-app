@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
-import  AuthCallback  from '../src/auth-callback/AuthCallback'
 
 /**
  * @returns {ReactElement} Return a reactElement.
