@@ -97,7 +97,7 @@ export const TablePosition = () => {
       }
       componentRightActions={
         <Button
-          size="xLarge"
+          size="large"
           startIcon={ <AddIcon />}
           variant='contained'
         >
