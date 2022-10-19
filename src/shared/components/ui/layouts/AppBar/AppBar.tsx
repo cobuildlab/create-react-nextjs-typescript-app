@@ -151,7 +151,7 @@ export const AppBar: FC<AppBarProps> = ({
             <ButtonBase onClick={() => {}}>
               <Stack direction='row'>
                 <Avatar
-                  alt='Leonel Lima'
+                  alt=''
                   src='https://i.pravatar.cc/150?img=3'
                 />
                 <ContainerUserName sx={{ display: { xs: 'none', md: 'flex' } }}>
