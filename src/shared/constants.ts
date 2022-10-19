@@ -15,12 +15,3 @@ export const WORKSPACE_ENDPOINT = `https://api.8base.com/${WORKSPACE_ID}${
 }`;
 // export const WORKSPACE_ENDPOINT = 'https://rickandmortyapi.com/graphql'
 export const PROJECT_ID = WORKSPACE_ID || '';
-
-export const ROUTES = {
-  AUTH: '/auth',
-  AUTH_CALLBACK: '/auth/callback',
-  DASHBOARD: '/dashboard',
-  TEAM: '/team',
-  HOME: '/',
-  LOGOUT: '/logout',
-};

@@ -1,5 +1,3 @@
-// import { useLocation, useNavigate } from 'react-router-dom';
-
 import {
   HomeOutlined as HomeIcon,
   SettingsOutlined as SettingsIcon,
@@ -13,7 +11,6 @@ import {
 import { CSSObject, styled, Theme, useTheme } from '@mui/material/styles';
 import { FillSpace } from '../../common/FillSpace';
 
-// import { ROUTES } from '../../../../constants';
 import { SidebarMenuItem } from './components/SidebarMenuItem';
 
 /**
@@ -92,10 +89,7 @@ interface SidebarProps {
  * @returns Sidebar Component.
  */
 export const Sidebar: React.FC<SidebarProps> = (props) => {
-  const theme = useTheme();
   const { open } = props;
-  // const navigate = useNavigate();
-  // const location = useLocation();
   const selected = true;
 
   return (
@@ -108,8 +102,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
             title="Home"
             onClick={() => {}}
             selected={selected}
-            // onClick={() => navigate(ROUTES.HOME)}
-            // selected={location.pathname === ROUTES.HOME}
+            // onClick={() => {}}
             icon={<HomeIcon />}
           />
         </List>
@@ -122,8 +115,7 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
             title="Settings"
             onClick={() => {}}
             selected={!selected}
-            // onClick={() => navigate(ROUTES.HOME)}
-            // selected={location.pathname === ROUTES.HOME}
+            // onClick={() => {}}
             icon={<SettingsIcon />}
           />
         </List>
