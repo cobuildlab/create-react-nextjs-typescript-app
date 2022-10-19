@@ -2,10 +2,7 @@
 
 import {
   HomeOutlined as HomeIcon,
-  GroupOutlined as PositionIcon,
-  SchoolOutlined as TalentIcon,
   SettingsOutlined as SettingsIcon,
-  ViewKanbanOutlined as KanbanIcon
 } from '@mui/icons-material';
 import {
   Divider as MUIDivider,
@@ -25,7 +22,7 @@ import { SidebarMenuItem } from './components/SidebarMenuItem';
  * @returns {CSSObject} - CSS Styles.
  */
 const openedMixin = (theme: Theme): CSSObject => ({
-  width: theme.mixins.drawer.maxWidth,
+  width: 240,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.easeInOut,
     duration: theme.transitions.duration.enteringScreen,
@@ -46,7 +43,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
   overflowX: 'hidden',
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
-    width: theme.mixins.drawer.minWidth,
+    width: 64,
   },
 });
 
@@ -114,30 +111,6 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
             // onClick={() => navigate(ROUTES.HOME)}
             // selected={location.pathname === ROUTES.HOME}
             icon={<HomeIcon />}
-          />
-          <SidebarMenuItem
-            title="Position"
-            onClick={() => {}}
-            selected={!selected}
-            // onClick={() => navigate(ROUTES.HOME)}
-            // selected={location.pathname === ROUTES.HOME}
-            icon={<PositionIcon />}
-          />
-          <SidebarMenuItem
-            title="Talent"
-            onClick={() => {}}
-            selected={!selected}
-            // onClick={() => navigate(ROUTES.HOME)}
-            // selected={location.pathname === ROUTES.HOME}
-            icon={<TalentIcon />}
-          />
-          <SidebarMenuItem
-            title="Kanban"
-            onClick={() => {}}
-            selected={!selected}
-            // onClick={() => navigate(ROUTES.HOME)}
-            // selected={location.pathname === ROUTES.HOME}
-            icon={<KanbanIcon />}
           />
         </List>
 

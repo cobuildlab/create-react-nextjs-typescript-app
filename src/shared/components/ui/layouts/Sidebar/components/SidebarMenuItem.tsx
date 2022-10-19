@@ -12,7 +12,7 @@ import { styled } from '@mui/material/styles';
 const ListItemButton = styled(MUIListItemButton)<ListItemButtonProps>(
   ({ theme }) => ({
     '& .MuiListItemText-root, & .MuiListItemIcon-root': {
-      color: theme.palette.gray[330],
+      color: theme.palette.grey[300],
     },
     '&.Mui-selected': {
       '&:before': {
@@ -68,7 +68,7 @@ export const SidebarMenuItem: React.FC<SidebarMenuItemProps> = ({
           {icon}
         </Badge>
       </ListItemIcon>
-      <ListItemText primary={ <Typography variant='textMedium16' >{title}</Typography> } />
+      <ListItemText primary={ <Typography>{title}</Typography> } />
     </ListItemButton>
   </ListItem>
 );

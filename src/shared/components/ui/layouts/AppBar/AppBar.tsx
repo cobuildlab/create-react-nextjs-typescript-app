@@ -26,7 +26,7 @@ import { AppBarMenu } from './components/AppBarMenu';
 
 const ActionIconButton = styled(IconButton)(({ theme }) => ({
   alignSelf: 'center',
-  color: theme.palette.misc.blueDark
+  color: theme.palette.primary.main
 }));
 
 const ContainerActions = styled(Stack)({
@@ -44,23 +44,23 @@ const ContainerUserName = styled(Stack)({
 });
 
 const Divider = styled(MUIDivider)(({ theme }) => ({
-  borderColor: theme.palette.misc.blueLight4,
+  borderColor: theme.palette.secondary.light,
   marginRight: '2rem',
   marginLeft: '2rem'
 }));
 
 const MenuIconButton = styled(IconButton)(({ theme }) => ({
-  color: theme.palette.gray[420],
+  color: theme.palette.grey[400],
   marginRight: theme.spacing(2),
 }));
 
 const TextUserName = styled(Typography)(({theme}) => ({
-  ...theme.typography.textRegular18,
-  color: theme.palette.misc.blueDark
+  ...theme.typography.body1,
+  color: theme.palette.secondary.main
 }));
 
 const TextRole = styled(Typography)(({theme}) => ({
-  ...theme.typography.textSemiBold14,
+  ...theme.typography.body2,
   color: theme.palette.primary.main
 }));
 
@@ -74,7 +74,7 @@ const MUIAppBarStyled = styled(MUIAppBar, {
   ...(!open && {
     width: `calc(100% - ${theme.spacing(7)} + 1px)`,
     [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${theme.mixins.drawer.minWidth}px)`,
+      width: `calc(100% - ${64}px)`,
     },
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
@@ -82,8 +82,8 @@ const MUIAppBarStyled = styled(MUIAppBar, {
     }),
   }),
   ...(open && {
-    marginLeft: theme.mixins.drawer.maxWidth,
-    width: `calc(100% - ${theme.mixins.drawer.maxWidth}px)`,
+    marginLeft: 240,
+    width: `calc(100% - ${240}px)`,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeInOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -129,7 +129,6 @@ export const AppBar: FC<AppBarProps> = ({
           </MenuIconButton>
 
           <Typography
-            variant="textSemiBold18"
             noWrap
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
