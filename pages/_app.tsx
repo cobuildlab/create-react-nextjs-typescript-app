@@ -3,8 +3,9 @@ import { UserProvider } from '@auth0/nextjs-auth0';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 
-import { ApolloProvider } from '../src/shared/apollo/ApolloProvider';
-import { theme } from '../src/shared/css/theme';
+import { ApolloProvider } from '../src/shared/apollo/provider';
+import { theme } from '../src/shared/styles/theme';
+import '../src/shared/styles/globals.css';
 
 /**
  * 
