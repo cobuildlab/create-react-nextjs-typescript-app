@@ -13,7 +13,6 @@ interface WrapperLoaderStyledProps {
 }
 
 const WrapperLoader = styled('div', {
-  // eslint-disable-next-line jsdoc/require-jsdoc
   shouldForwardProp: (prop) => prop !== 'fullPage' && prop !== 'centered',
 })<WrapperLoaderStyledProps>(({ fullPage, centered }) => ({
   display: 'flex',

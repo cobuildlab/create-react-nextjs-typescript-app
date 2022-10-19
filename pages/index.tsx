@@ -1,10 +1,9 @@
-import { ReactElement } from 'react';
+import type { NextPage } from 'next'
+import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
 
-/**
- * @returns {ReactElement} Return a reactElement.
- */
-export default function App  (): ReactElement { 
+
+const App: NextPage = () => { 
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;
@@ -13,10 +12,12 @@ export default function App  (): ReactElement {
   if (user) {
     return (
       <div>
-        Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+        Welcome {user.name}! <Link href="/api/auth/logout">Logout</Link>
       </div>
     );
   }
 
-  return <a href="/api/auth/login">Login</a>;
+  return <Link href="/api/auth/login">Login</Link>;
 }
+
+export default App;

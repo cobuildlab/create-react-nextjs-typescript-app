@@ -4,13 +4,14 @@ import { tryCatch } from '@cobuildlab/error-handling';
 import { useCallback } from 'react';
 
 import { AUTH_PROFILE_ID } from '../../shared/constants';
+import { useLocalStorage } from '../../shared/hooks/storage';
 import { QueryResponse } from '../../shared/types';
 import { CURRENT_USER_QUERY, FETCH_SESSION_QUERY, USER_SIGN_UP_MUTATION } from './auth-queries';
 import { SessionQuery } from './auth-types';
 
 type AuthHookType = {
   getToken: () => Promise<string | null>;
-  handleAuthentication: (email: string) => Promise<void>;
+  handleLogout: () => void
 };
 
 /**
@@ -31,42 +32,28 @@ export function useSession(): QueryResponse<SessionQuery> | null {
  */
 export const useAuth = (): AuthHookType => {
   const client = useApolloClient();
-  const { getIdTokenClaims } = useAuth0();
+  const { logout } = useAuth0();
+  const { clearAll } = useLocalStorage();
 
   const getToken = useCallback(async () => {
-    const token = await getIdTokenClaims();
-    // eslint-disable-next-line no-underscore-dangle
-    const tokenRaw: string | undefined = token?.__raw;
-    return tokenRaw || null;
+    const res = await fetch(`http://localhost:3000/api/auth/token`)
+    if (res.ok) {
+      const json = await res.json()
+      return json.token;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /**
-   * 
-   * @param email - User email.
+   * Logout.
    */
-   const handleAuthentication = async (email: string): Promise<void> => {
-    const [, error] = await tryCatch(
-      client.query({
-        query: CURRENT_USER_QUERY,
-      })
-    );
-  
-    if (error) {
-      await tryCatch(
-        client.mutate({
-          mutation: USER_SIGN_UP_MUTATION,
-          variables: {
-            user: { email },
-            authProfileId: AUTH_PROFILE_ID,
-          },
-        })
-      );
-    }
+   const handleLogout = (): void => {
+    clearAll();
+    logout({ returnTo: window.location.origin });
   };
 
   return {
     getToken,
-    handleAuthentication
+    handleLogout
   };
 };

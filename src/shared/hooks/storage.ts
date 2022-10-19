@@ -52,10 +52,11 @@ export const useLocalStorage = (): LocalStorageHookType => {
    */
   const clearAll = (): void => {
     const variables = localStorage.getItem(prefix);
-    (variables || '').split(',').forEach((variable) => {
-      localStorage.removeItem(variable);
-    });
-
+    if (variables) {
+      variables.split(',').forEach((variable) => {
+        localStorage.removeItem(variable);
+      });
+    }
     localStorage.removeItem(prefix);
   };
 
