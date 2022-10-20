@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
+import { useUser } from '@auth0/nextjs-auth0';
 
 import { Loader } from './ui/components/Loader';
-import { useSession } from '../../modules/auth/auth-hooks';
 
 type SessionProps = {
   children: ReactElement;
@@ -13,9 +13,9 @@ type SessionProps = {
  * @returns {ReactElement} - Session component.
  */
 export function Session({ children }: SessionProps): ReactElement {
-  const session = useSession();
+  const { isLoading } = useUser();
 
-  if (session?.loading) return <Loader fullPage />;
+  if (isLoading) return <Loader fullPage />;
 
   // Problems with children type
   // ReacxtNode or ReactElement
