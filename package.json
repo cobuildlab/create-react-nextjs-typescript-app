@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@apollo/client": "^3.7.0",
@@ -24,7 +25,6 @@
     "@mui/system": "^5.10.8",
     "@testing-library/jest-dom": "^5.16.5",
     "graphql": "^16.6.0",
-    "graphql-ws": "^5.11.2",
     "next": "^12.3.1",
     "next-http-proxy-middleware": "^1.2.4",
     "react": "18.2.0",
