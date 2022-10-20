@@ -4,7 +4,7 @@ import {
   PowerSettingsNewOutlined as SignoutIcon
 } from '@mui/icons-material';
 import { FC } from "react";
-import { useAuth } from "../../../../../../modules/auth/auth-hooks";
+import { useRouter } from "next/router";
 
 type AppBarMenuProps = {
   anchorMenu: HTMLElement | null,
@@ -12,7 +12,7 @@ type AppBarMenuProps = {
 }
 
 export const AppBarMenu: FC<AppBarMenuProps> = ({ anchorMenu, onClose }) => {
-  const { handleLogout } = useAuth();
+  const router = useRouter();
   const isOpenMenu = Boolean(anchorMenu);
 
   return (
@@ -35,7 +35,7 @@ export const AppBarMenu: FC<AppBarMenuProps> = ({ anchorMenu, onClose }) => {
         </ListItemIcon>
         <Typography>Account Settings</Typography>
       </MenuItem>
-      <MenuItem onClick={handleLogout}>
+      <MenuItem onClick={() => router.push('/api/auth/logout')}>
         <ListItemIcon>
           <SignoutIcon />
         </ListItemIcon>

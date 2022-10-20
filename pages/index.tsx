@@ -1,23 +1,26 @@
-import type { NextPage } from 'next'
+import { NextPage } from 'next';
 import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
 
+import { Loader } from '../src/shared/components/ui/components/Loader';
 
-const App: NextPage = () => { 
+
+const HomePage: NextPage = () => {
+
   const { user, error, isLoading } = useUser();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader fullPage />;
   if (error) return <div>{error.message}</div>;
 
   if (user) {
     return (
-      <div>
+      <>
         Welcome {user.name}! <Link href="/api/auth/logout">Logout</Link>
-      </div>
+      </>
     );
   }
 
-  return <Link href="/api/auth/login">Login</Link>;
+  return <Link href='/api/auth/login'>Login</Link>
 }
 
-export default App;
+export default HomePage;
